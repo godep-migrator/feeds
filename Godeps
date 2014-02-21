@@ -1,0 +1,15 @@
+{
+	"ImportPath": "github.com/jeffchao/feeds",
+	"GoVersion": "go1.2rc5",
+	"Deps": [
+		{
+			"ImportPath": "github.com/codegangsta/inject",
+			"Rev": "9aea7a2fa5b79ef7fc00f63a575e72df33b4e886"
+		},
+		{
+			"ImportPath": "github.com/codegangsta/martini",
+			"Comment": "v0.1-93-gae2a399",
+			"Rev": "ae2a399f8fca32e3dea454a24eac8258b1938336"
+		}
+	]
+}
