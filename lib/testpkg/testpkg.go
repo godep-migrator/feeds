@@ -1,9 +1,9 @@
 package testpkg
 
 import (
-  "fmt"
+	"fmt"
 )
 
 func TestMessage() {
-  fmt.Println("test message")
+	fmt.Println("test message")
 }

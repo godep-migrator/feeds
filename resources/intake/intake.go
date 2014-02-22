@@ -1,27 +1,27 @@
 package intake
 
 import (
-  "github.com/codegangsta/martini"
-  "net/http"
-  "log"
+	"github.com/codegangsta/martini"
+	"log"
+	"net/http"
 )
 
 func Index(req *http.Request, res http.ResponseWriter, params martini.Params, logger *log.Logger) string {
-  logger.Println(req.URL.Query())
-  logger.Println(params)
+	logger.Println(req.URL.Query())
+	logger.Println(params)
 
-  return "using intake.Index()"
+	return "using intake.Index()"
 }
 
 func Create(req *http.Request, res http.ResponseWriter, params martini.Params, logger *log.Logger) string {
-  logger.Println(params)
+	logger.Println(params)
 
-  err := req.ParseForm()
-  if err != nil {
-    return "error"
-  }
+	err := req.ParseForm()
+	if err != nil {
+		return "error"
+	}
 
-  logger.Println(req.Form)
+	logger.Println(req.Form)
 
-  return "created"
+	return "created"
 }

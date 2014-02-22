@@ -1,18 +1,18 @@
 package main
 
 import (
-  "github.com/jeffchao/feeds/lib/testpkg"
-  "net/http"
-  "github.com/codegangsta/martini"
-  "github.com/jeffchao/feeds/config/routes"
+	"github.com/codegangsta/martini"
+	"github.com/jeffchao/feeds/config/routes"
+	"github.com/jeffchao/feeds/lib/testpkg"
+	"net/http"
 )
 
 func main() {
-  testpkg.TestMessage()
+	testpkg.TestMessage()
 
-  server := martini.Classic()
-  routes.Init(server);
+	server := martini.Classic()
+	routes.Init(server)
 
-  http.ListenAndServe(":8080", server)
-  server.Run()
+	http.ListenAndServe(":8080", server)
+	server.Run()
 }
