@@ -1,0 +1,22 @@
+{
+  "development": {
+    "keyspace": "feeds_development",
+    "hosts": [
+      "127.0.0.1:9042"
+    ]
+  },
+
+  "test": {
+    "keyspace": "feeds_test",
+    "hosts": [
+      "127.0.0.1:9042"
+    ]
+  },
+
+  "production": {
+    "keyspace": "feeds_production",
+    "hosts": [
+      "127.0.0.1:9042"
+    ]
+  }
+}
