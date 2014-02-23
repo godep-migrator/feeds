@@ -1,12 +1,13 @@
 package intake
 
 import (
+  "github.com/gocql/gocql"
 	"github.com/codegangsta/martini"
 	"log"
 	"net/http"
 )
 
-func Index(req *http.Request, res http.ResponseWriter, params martini.Params, logger *log.Logger) string {
+func Index(cql *gocql.Session, req *http.Request, res http.ResponseWriter, params martini.Params, logger *log.Logger) string {
 	logger.Println(req.URL.Query())
 	logger.Println(params)
 
