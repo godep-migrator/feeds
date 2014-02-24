@@ -1,6 +1,7 @@
 package channel
 
 import (
+	"encoding/json"
 	"github.com/gocql/gocql"
 )
 
@@ -22,4 +23,18 @@ func FindAllChannels(cql *gocql.Session) ([]Record, error) {
 	}
 
 	return channels, nil
+}
+
+func Stringify(channels []Record) string {
+	result := make([]map[string]interface{}, 0, len(channels))
+	channel := make(map[string]interface{})
+
+	for _, c := range channels {
+		channel["id"] = c.Id.String()
+		channel["name"] = c.Name
+		result = append(result, channel)
+	}
+
+	resultJSON, _ := json.Marshal(&result)
+	return string(resultJSON)
 }

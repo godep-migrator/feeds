@@ -1,7 +1,7 @@
 package intake
 
 import (
-	"encoding/json"
+	//	"encoding/json"
 	"github.com/codegangsta/martini"
 	"github.com/gocql/gocql"
 	"github.com/jeffchao/feeds/models/channel"
@@ -17,9 +17,7 @@ func Index(cql *gocql.Session, req *http.Request, res http.ResponseWriter, param
 
 	log.Printf("%+v", channels)
 
-	response, _ := json.Marshal(channels)
-
-	return string(response)
+	return channel.Stringify(channels)
 }
 
 func Create(req *http.Request, res http.ResponseWriter, params martini.Params, logger *log.Logger) string {
