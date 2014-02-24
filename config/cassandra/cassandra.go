@@ -44,6 +44,7 @@ func CQL() martini.Handler {
 
 	cluster := gocql.NewCluster((*config)[env].Hosts[0].(string))
 	cluster.Keyspace = (*config)[env].Keyspace
+	cluster.Consistency = gocql.Quorum
 
 	return func(context martini.Context) {
 		session, _ := cluster.CreateSession()

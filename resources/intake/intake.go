@@ -1,8 +1,10 @@
 package intake
 
 import (
+	"encoding/json"
 	"github.com/codegangsta/martini"
 	"github.com/gocql/gocql"
+	"github.com/jeffchao/feeds/models/channel"
 	"log"
 	"net/http"
 )
@@ -11,7 +13,13 @@ func Index(cql *gocql.Session, req *http.Request, res http.ResponseWriter, param
 	logger.Println(req.URL.Query())
 	logger.Println(params)
 
-	return "using intake.Index()"
+	channels, _ := channel.FindAllChannels(cql)
+
+	log.Printf("%+v", channels)
+
+	response, _ := json.Marshal(channels)
+
+	return string(response)
 }
 
 func Create(req *http.Request, res http.ResponseWriter, params martini.Params, logger *log.Logger) string {
