@@ -5,7 +5,7 @@ import (
 	"log"
 )
 
-func findAllChannels(cql *gocql.Session) (bool, error) {
+func FindAllChannels(cql *gocql.Session) (bool, error) {
 	log.Println(cql)
 	return true, nil
 }
