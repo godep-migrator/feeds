@@ -1,8 +1,8 @@
 package intake
 
 import (
-  "github.com/gocql/gocql"
 	"github.com/codegangsta/martini"
+	"github.com/gocql/gocql"
 	"log"
 	"net/http"
 )

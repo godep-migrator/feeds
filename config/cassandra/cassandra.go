@@ -3,7 +3,7 @@ package cassandra
 import (
 	"encoding/json"
 	"fmt"
-  "github.com/codegangsta/martini"
+	"github.com/codegangsta/martini"
 	"github.com/gocql/gocql"
 	"os"
 	"path/filepath"
@@ -19,12 +19,12 @@ type Config map[string]CassandraConfig
 func CQL() martini.Handler {
 	jsonFile, err := filepath.Abs("config/cassandra/cassandra.json")
 	if err != nil {
-    panic(err)
+		panic(err)
 	}
 
 	file, err := os.Open(jsonFile)
 	if err != nil {
-    panic(err)
+		panic(err)
 	}
 
 	decoder := json.NewDecoder(file)
@@ -32,7 +32,7 @@ func CQL() martini.Handler {
 
 	err = decoder.Decode(&config)
 	if err != nil {
-    panic(err)
+		panic(err)
 	}
 
 	env := os.Getenv("GO_ENV")
@@ -46,9 +46,9 @@ func CQL() martini.Handler {
 	cluster.Keyspace = (*config)[env].Keyspace
 
 	return func(context martini.Context) {
-    session, _ := cluster.CreateSession()
-    context.Map(session)
-    defer session.Close()
-    context.Next()
-  }
+		session, _ := cluster.CreateSession()
+		context.Map(session)
+		defer session.Close()
+		context.Next()
+	}
 }

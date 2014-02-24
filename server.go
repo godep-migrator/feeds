@@ -11,7 +11,7 @@ func main() {
 	server := martini.Classic()
 	routes.Init(server)
 
-  server.Use(cassandra.CQL())
+	server.Use(cassandra.CQL())
 
 	http.ListenAndServe(":8080", server)
 	server.Run()
