@@ -2,7 +2,7 @@ package intake
 
 import (
 	"github.com/codegangsta/martini"
-  "github.com/codegangsta/martini-contrib/render"
+	"github.com/codegangsta/martini-contrib/render"
 	"github.com/gocql/gocql"
 	"github.com/jeffchao/feeds/models/channel"
 	"log"

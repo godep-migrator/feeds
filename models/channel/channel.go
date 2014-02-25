@@ -6,14 +6,14 @@ import (
 
 const columnFamily = "channels"
 
-type Record struct {
+type Schema struct {
 	Id   gocql.UUID `json:"id"`
-	Name string `json:"name"`
+	Name string     `json:"name"`
 }
 
-func FindAllChannels(cql *gocql.Session) ([]Record, error) {
-	channels := []Record{}
-	channel := Record{}
+func FindAllChannels(cql *gocql.Session) ([]Schema, error) {
+	channels := []Schema{}
+	channel := Schema{}
 
 	iter := cql.Query("SELECT * FROM " + columnFamily).Consistency(gocql.One).Iter()
 
@@ -24,7 +24,7 @@ func FindAllChannels(cql *gocql.Session) ([]Record, error) {
 	return channels, nil
 }
 
-func Stringify(channels []Record) []map[string]interface{} {
+func Stringify(channels []Schema) []map[string]interface{} {
 	result := make([]map[string]interface{}, 0, len(channels))
 	channel := make(map[string]interface{})
 
