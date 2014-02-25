@@ -5,7 +5,7 @@ import (
 	"github.com/jeffchao/feeds/resources/intake"
 )
 
-func Init(server *martini.ClassicMartini) {
+func Route(server *martini.ClassicMartini) {
 	server.Get("/", intake.Index)
 	server.Post("/", intake.Create)
 }

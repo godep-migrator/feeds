@@ -1,15 +1,14 @@
 package channel
 
 import (
-	"encoding/json"
 	"github.com/gocql/gocql"
 )
 
 const columnFamily = "channels"
 
 type Record struct {
-	Id   gocql.UUID
-	Name string
+	Id   gocql.UUID `json:"id"`
+	Name string `json:"name"`
 }
 
 func FindAllChannels(cql *gocql.Session) ([]Record, error) {
@@ -25,7 +24,7 @@ func FindAllChannels(cql *gocql.Session) ([]Record, error) {
 	return channels, nil
 }
 
-func Stringify(channels []Record) string {
+func Stringify(channels []Record) []map[string]interface{} {
 	result := make([]map[string]interface{}, 0, len(channels))
 	channel := make(map[string]interface{})
 
@@ -35,6 +34,5 @@ func Stringify(channels []Record) string {
 		result = append(result, channel)
 	}
 
-	resultJSON, _ := json.Marshal(&result)
-	return string(resultJSON)
+	return result
 }
