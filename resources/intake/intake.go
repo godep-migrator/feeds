@@ -17,7 +17,7 @@ func Index(cql *gocql.Session, req *http.Request, res http.ResponseWriter, param
 
 	log.Printf("%+v", channels)
 
-	r.JSON(200, channel.Stringify(channels))
+	r.JSON(200, channel.Serialize(channels))
 }
 
 func Create(req *http.Request, res http.ResponseWriter, params martini.Params, logger *log.Logger) string {

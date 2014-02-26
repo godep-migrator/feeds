@@ -24,7 +24,7 @@ func FindAllChannels(cql *gocql.Session) ([]Schema, error) {
 	return channels, nil
 }
 
-func Stringify(channels []Schema) []map[string]interface{} {
+func Serialize(channels []Schema) []map[string]interface{} {
 	result := make([]map[string]interface{}, 0, len(channels))
 	channel := make(map[string]interface{})
 
