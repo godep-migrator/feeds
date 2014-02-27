@@ -11,6 +11,10 @@ type Schema struct {
 	Name string     `json:"name"`
 }
 
+func (self Schema) SaveChannel() error {
+	return nil
+}
+
 func FindAllChannels(cql *gocql.Session) ([]Schema, error) {
 	channels := []Schema{}
 	channel := Schema{}
