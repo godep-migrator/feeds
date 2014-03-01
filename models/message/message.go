@@ -13,3 +13,7 @@ type Schema struct {
 func (self Schema) Save() error {
 	return nil
 }
+
+func FindAllMessages(cql *gocql.Session) ([]Schema, error) {
+	return nil, nil
+}
