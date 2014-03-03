@@ -30,9 +30,9 @@ func FindAllChannels(cql *gocql.Session) ([]Schema, error) {
 
 func Serialize(channels []Schema) []map[string]interface{} {
 	result := make([]map[string]interface{}, 0, len(channels))
-	channel := make(map[string]interface{})
 
 	for _, c := range channels {
+    channel := make(map[string]interface{})
 		channel["id"] = c.Id.String()
 		channel["name"] = c.Name
 		result = append(result, channel)
